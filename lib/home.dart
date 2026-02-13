@@ -52,14 +52,35 @@ class _HomeState extends State<Home> {
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.w500,
+                color: isDayTime ? Colors.black : Colors.black
               ),
-              
-              
               ),
+              const SizedBox(height: 30),
             Icon(
               Icons.wb_sunny,
                size: 250, 
-               color: Colors.orange)
+               color: Colors.orange),
+              const SizedBox(height: 30),
+              Text(
+                '27° c',
+                style: TextStyle(
+                  fontSize: 30,
+                ),
+              ),
+              Text(
+                'Good Morning',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.grey,
+                ),
+              ),
+              const SizedBox(height: 30),
+              const SizedBox(
+              width: 50,
+              child: Divider(
+                thickness:3,
+              ),),
+              
           ],
 
         ),
