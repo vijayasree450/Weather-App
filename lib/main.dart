@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weatherapp/home.dart';
+import 'package:weatherapp/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,12 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Home(),
-   
-
-        
-      
-      
-     
+      theme: light,
+      darkTheme: dark,
     );
   }
 }

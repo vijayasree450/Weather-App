@@ -43,7 +43,7 @@ class _HomeState extends State<Home> {
       ],
       ),
       body: Container(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(30),
         child: Center(
         child: Column(
           children: [
@@ -79,7 +79,108 @@ class _HomeState extends State<Home> {
               width: 50,
               child: Divider(
                 thickness:3,
-              ),),
+              ),
+              ),
+              const SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                
+                children: [
+                Column(
+                  children: [
+                    Icon(Icons.wb_twighlight,size: 50,),
+                  Text("SUNRISE"),
+                    Text("6:00 AM"),
+                  ],
+                ),
+                SizedBox(
+                  height: 50,
+                  child: VerticalDivider(color: Colors.black,
+                  thickness: 1,
+                  
+                  ),
+                ),
+                Column(
+                  children: [
+                    Icon(Icons.air,size: 50,),
+                  Text("Wind"),
+                    Text("4m/s"),
+                  ],
+                  
+                ),
+                 SizedBox(
+                  height: 50,
+                  child: VerticalDivider(color: Colors.black,
+                  thickness: 1,
+                  
+                  ),
+                ),
+                
+                Column(
+                  children: [
+                    Icon(Icons.thermostat,size: 50,),
+                  Text("Temperature"),
+                    Text("23"),
+                  ],
+                )
+              ],
+              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                
+              //   children: [
+              //   Column(
+              //     children: [
+              //       Icon(Icons.wb_twighlight,size: 50,),
+              //     Text("Sunday"),
+              //       Text("6:00 AM"),
+              //     ],
+              //   ),
+              //     Column(
+              //     children: [
+              //       Icon(Icons.wb_twighlight,size: 50,),
+              //     Text("Mon"),
+              //       Text("6:00 AM"),
+              //     ],
+              //   ),
+              //     Column(
+              //     children: [
+              //       Icon(Icons.wb_twighlight,size: 50,),
+              //     Text("Tues"),
+              //       Text("6:00 AM"),
+              //     ],
+              //   ),
+              //     Column(
+              //     children: [
+              //       Icon(Icons.wb_twighlight,size: 50,),
+              //     Text("Wednes"),
+              //       Text("6:00 AM"),
+              //     ],
+              //   ),
+              //     Column(
+              //     children: [
+              //       Icon(Icons.wb_twighlight,size: 50,),
+              //     Text("Thurs"),
+              //       Text("6:00 AM"),
+              //     ],
+              //   ),
+              //    Column(
+              //     children: [
+              //       Icon(Icons.wb_twighlight,size: 50,),
+              //     Text("Fri"),
+              //       Text("6:00 AM"),
+              //     ],
+              //   ),
+              //    Column(
+              //     children: [
+              //       Icon(Icons.wb_twighlight,size: 50,),
+              //     Text("Satur"),
+              //       Text("6:00 AM"),
+              //     ],
+              //   ),
+
+              //   ],
+              // ),
               
           ],
 
