@@ -1,71 +1,74 @@
-import 'package:flutter/material.dart';
 
-class Home extends StatefulWidget {
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:weatherapp/theme.dart';
+import 'package:weatherapp/theme.provider.dart' show ThemeProvider;
+
+
+class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  bool isDayTime = false;
-  @override
-  
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-        onPressed: (){}, 
-        icon:  const  Icon(Icons.more_vert)),
-      
-      actions:[
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Switch(
-            activeColor: Colors.black,
-            inactiveThumbColor: Colors.black,
-            thumbColor: const MaterialStatePropertyAll(Colors.orange),
-            inactiveTrackColor: Colors.transparent,
-            thumbIcon: MaterialStatePropertyAll(
-              Icon( 
-                isDayTime 
-                ? Icons.wb_sunny : 
-                Icons.nightlight_round,
-                color: Colors.black,)
-            ),
-            value: isDayTime, 
-          onChanged: (value){
-            setState(() {
-              isDayTime = value;
-            });
-          }),
+          onPressed: () {},
+          icon: const Icon(Icons.more_vert),
         ),
-      ],
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Consumer<ThemeProvider>(
+              builder: (context, ThemeProvider, child) {
+                return Switch(
+                  activeColor: Colors.black,
+                  inactiveThumbColor: Colors.black,
+                  thumbColor: const MaterialStatePropertyAll(Colors.orange),
+                  inactiveTrackColor: Colors.transparent,
+                  thumbIcon: MaterialStatePropertyAll(
+                    Icon(
+                      ThemeProvider.isDarkMode
+                          ? Icons.wb_sunny
+                          : Icons.nightlight_round,
+                      color: Colors.black,
+                    ),
+                  ),
+                  value: ThemeProvider.isDarkMode,
+                  onChanged: (value) {
+                    ThemeProvider.toggleTheme();
+                  },
+                );
+                 
+                  },
+                ),
+              
+            ),
+          
+        ],
       ),
       body: Container(
         padding: const EdgeInsets.all(30),
         child: Center(
-        child: Column(
-          children: [
-            Text(
-              "Attenganam",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.w500,
-                color: isDayTime ? Colors.black : Colors.black
-              ),
-              ),
-              const SizedBox(height: 30),
-            Icon(
-              Icons.wb_sunny,
-               size: 250, 
-               color: Colors.orange),
-              const SizedBox(height: 30),
+          child: Column(
+            children: const [
               Text(
-                '27° c',
+                "Attenganam",
                 style: TextStyle(
                   fontSize: 30,
+                  fontWeight: FontWeight.w500,
                 ),
+              ),
+              SizedBox(height: 30),
+              Icon(
+                Icons.wb_sunny,
+                size: 250,
+                color: Colors.orange,
+              ),
+              SizedBox(height: 30),
+              Text(
+                '27° C',
+                style: TextStyle(fontSize: 30),
               ),
               Text(
                 'Good Morning',
@@ -74,119 +77,51 @@ class _HomeState extends State<Home> {
                   color: Colors.grey,
                 ),
               ),
-              const SizedBox(height: 30),
-              const SizedBox(
-              width: 50,
-              child: Divider(
-                thickness:3,
+              SizedBox(height: 30),
+              SizedBox(
+                width: 50,
+                child: Divider(thickness: 3),
               ),
-              ),
-              const SizedBox(height: 30),
+              SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                
                 children: [
-                Column(
-                  children: [
-                    Icon(Icons.wb_twighlight,size: 50,),
-                  Text("SUNRISE"),
-                    Text("6:00 AM"),
-                  ],
-                ),
-                SizedBox(
-                  height: 50,
-                  child: VerticalDivider(color: Colors.black,
-                  thickness: 1,
-                  
+                  Column(
+                    children: [
+                      Icon(Icons.wb_twilight, size: 40),
+                      Text("SUNRISE"),
+                      Text("6:00 AM"),
+                    ],
                   ),
-                ),
-                Column(
-                  children: [
-                    Icon(Icons.air,size: 50,),
-                  Text("Wind"),
-                    Text("4m/s"),
-                  ],
-                  
-                ),
-                 SizedBox(
-                  height: 50,
-                  child: VerticalDivider(color: Colors.black,
-                  thickness: 1,
-                  
+                  SizedBox(
+                    height: 50,
+                    child: VerticalDivider(thickness: 1),
                   ),
-                ),
-                
-                Column(
-                  children: [
-                    Icon(Icons.thermostat,size: 50,),
-                  Text("Temperature"),
-                    Text("23"),
-                  ],
-                )
-              ],
+                  Column(
+                    children: [
+                      Icon(Icons.air, size: 40),
+                      Text("Wind"),
+                      Text("4 m/s"),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 50,
+                    child: VerticalDivider(thickness: 1),
+                  ),
+                  Column(
+                    children: [
+                      Icon(Icons.thermostat, size: 40),
+                      Text("Temperature"),
+                      Text("23°"),
+                    ],
+                  ),
+                ],
               ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                
-              //   children: [
-              //   Column(
-              //     children: [
-              //       Icon(Icons.wb_twighlight,size: 50,),
-              //     Text("Sunday"),
-              //       Text("6:00 AM"),
-              //     ],
-              //   ),
-              //     Column(
-              //     children: [
-              //       Icon(Icons.wb_twighlight,size: 50,),
-              //     Text("Mon"),
-              //       Text("6:00 AM"),
-              //     ],
-              //   ),
-              //     Column(
-              //     children: [
-              //       Icon(Icons.wb_twighlight,size: 50,),
-              //     Text("Tues"),
-              //       Text("6:00 AM"),
-              //     ],
-              //   ),
-              //     Column(
-              //     children: [
-              //       Icon(Icons.wb_twighlight,size: 50,),
-              //     Text("Wednes"),
-              //       Text("6:00 AM"),
-              //     ],
-              //   ),
-              //     Column(
-              //     children: [
-              //       Icon(Icons.wb_twighlight,size: 50,),
-              //     Text("Thurs"),
-              //       Text("6:00 AM"),
-              //     ],
-              //   ),
-              //    Column(
-              //     children: [
-              //       Icon(Icons.wb_twighlight,size: 50,),
-              //     Text("Fri"),
-              //       Text("6:00 AM"),
-              //     ],
-              //   ),
-              //    Column(
-              //     children: [
-              //       Icon(Icons.wb_twighlight,size: 50,),
-              //     Text("Satur"),
-              //       Text("6:00 AM"),
-              //     ],
-              //   ),
-
-              //   ],
-              // ),
-              
-          ],
-
+            ],
+          ),
         ),
-      ),
       ),
     );
   }
 }
+

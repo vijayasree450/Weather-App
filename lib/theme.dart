@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 
-ThemeData light = ThemeData(
+ThemeData lightmode = ThemeData(
   brightness: Brightness.light,
   
 );
 
 
-ThemeData dark = ThemeData(
+ThemeData darkmode = ThemeData(
   brightness: Brightness.dark,
   
 );

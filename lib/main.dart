@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:weatherapp/home.dart';
 import 'package:weatherapp/theme.dart';
+import 'package:weatherapp/theme.provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+    create: (context) => ThemeProvider(),
+    child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,8 +19,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Home(),
-      theme: light,
-      darkTheme: dark,
+      theme: Provider.of<ThemeProvider>(context).themeData,
+    
     );
   }
 }
